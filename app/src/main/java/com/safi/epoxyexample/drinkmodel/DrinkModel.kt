@@ -10,7 +10,7 @@ import com.safi.epoxyexample.R
 import com.safi.epoxyexample.databinding.ItemDrinkBinding
 
 @EpoxyModelClass
-abstract class DrinkModel : EpoxyModelWithHolder<DrinkModel.FoodHolder>() {
+abstract class DrinkModel : EpoxyModelWithHolder<DrinkModel.DrinkHolder>() {
 
     @EpoxyAttribute
     @DrawableRes
@@ -19,14 +19,14 @@ abstract class DrinkModel : EpoxyModelWithHolder<DrinkModel.FoodHolder>() {
     @EpoxyAttribute
     var title: String = ""
 
-    override fun bind(holder: FoodHolder) {
+    override fun bind(holder: DrinkHolder) {
         holder.apply {
             binding.drinkIV.setImageResource(image)
             binding.title.text = title
         }
     }
 
-    inner class FoodHolder : EpoxyHolder() {
+    inner class DrinkHolder : EpoxyHolder() {
         lateinit var binding: ItemDrinkBinding
         override fun bindView(itemView: View) {
             binding = ItemDrinkBinding.bind(itemView)
