@@ -1,12 +1,12 @@
-package com.safi.epoxyexample
+package com.safi.epoxyexample.foodmodel
 
 import android.view.View
 import androidx.annotation.DrawableRes
-import com.airbnb.epoxy.AutoModel
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
+import com.safi.epoxyexample.R
 import com.safi.epoxyexample.databinding.ItemFoodBinding
 
 @EpoxyModelClass
