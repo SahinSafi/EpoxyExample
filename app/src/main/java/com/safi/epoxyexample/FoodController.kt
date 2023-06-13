@@ -2,7 +2,9 @@ package com.safi.epoxyexample
 
 import com.airbnb.epoxy.Typed2EpoxyController
 import com.safi.epoxyexample.drinkmodel.DrinkEntity
+import com.safi.epoxyexample.drinkmodel.drink
 import com.safi.epoxyexample.foodmodel.FoodEntity
+import com.safi.epoxyexample.foodmodel.food
 
 class FoodController : Typed2EpoxyController<List<FoodEntity>, List<DrinkEntity>>() {
 
