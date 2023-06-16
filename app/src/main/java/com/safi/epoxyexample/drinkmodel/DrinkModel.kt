@@ -10,7 +10,9 @@ import com.safi.epoxyexample.R
 import com.safi.epoxyexample.databinding.ItemDrinkBinding
 
 @EpoxyModelClass
-abstract class DrinkModel : EpoxyModelWithHolder<DrinkModel.DrinkHolder>() {
+abstract class DrinkModel(
+    private val onClick:(isAdd: Boolean, title:String)->Unit
+) : EpoxyModelWithHolder<DrinkModel.DrinkHolder>() {
 
     @EpoxyAttribute
     @DrawableRes
@@ -19,10 +21,22 @@ abstract class DrinkModel : EpoxyModelWithHolder<DrinkModel.DrinkHolder>() {
     @EpoxyAttribute
     var title: String = ""
 
+    private var isItemSelected = false
     override fun bind(holder: DrinkHolder) {
         holder.apply {
             binding.drinkIV.setImageResource(image)
             binding.title.text = title
+            binding.cardView.setOnClickListener {
+                if (isItemSelected) {
+                    binding.selectionIV.setImageResource(R.drawable.ic_add_circle_24)
+                    isItemSelected = false
+                } else {
+                    isItemSelected = true
+                    binding.selectionIV.setImageResource(R.drawable.ic_check_circle_24)
+                }
+                onClick.invoke(isItemSelected, title)
+            }
+
         }
     }
 
